@@ -193,65 +193,6 @@ data = []
 link_data = []
 time.sleep(5)
 
-# def get_Preschoolers_data():
-#     # 定位到对应的父元素
-#     Preschoolers = driver.find_element(By.CSS_SELECTOR, ".bm-categorybox:nth-child(7)")
-
-#     # 找到父元素下所有的子元素
-#     Preschoolers_child = Preschoolers.find_elements(By.TAG_NAME, "li")
-
-
-
-#     # 输出子元素数量
-#     print("Number of child elements:", len(Preschoolers_child))
-
-#     for i in range (1,len(Preschoolers_child)+1):
-
-#         # 模拟点击第一个链接
-#         try:
-#             # driver.get(url)
-#             driver.find_element(By.CSS_SELECTOR, f".bm-categorybox:nth-child(7) li:nth-child({i}) .bm-category-calendar-link:nth-child(1)").click()
-#             time.sleep(5)
-            
-#             # 获取页面源代码
-#             html_content_with_dynamic_content = driver.page_source
-#             # 解析HTML内容
-#             soup = BeautifulSoup(html_content_with_dynamic_content, 'html.parser')
-
-#             wait = WebDriverWait(driver, 10)
-
-#             hm_course=find_how_many_course(soup)
-#             print(hm_course)
-
-#             for i in range(1, hm_course+1):  # 假设要循环点击前三个 course-service
-#                 # 构造 CSS 选择器
-#                 css_selector = f"course-service:nth-child({i}) .bm-group-expander-text"
-#                 # 点击对应的元素
-#                 driver.find_element(By.CSS_SELECTOR, css_selector).click()
-#                 print("finish clicked:",i)
-#                 time.sleep(3)
-#                 # 获取页面源代码
-#                 html_content_with_dynamic_content = driver.page_source
-#                 # 解析HTML内容
-#                 soup = BeautifulSoup(html_content_with_dynamic_content, 'html.parser')
-#                 get_detail_info(soup,i,data)
-
-#             driver.find_element(By.CSS_SELECTOR, ".back-button-label").click()
-#             time.sleep(5)
-            
-#         except Exception as e:
-#             print("button cant click")
-#             continue
-
-#     # 关闭浏览器
-#     driver.quit()
-
-#     df = pd.DataFrame(data)
-#     util.save_final_file(df,region_code, file_type = 'list', job_type = "Preschoolers")
-#     util.log_event_list(region_code, 'EV_FINISHED', None, None, None)
-
-
-
 def get_Children_data(out_side_position,age_type):
     
     driver = util.get_driver()
@@ -346,14 +287,3 @@ for out_side_positon in range(2,8):
     
     get_Children_data(out_side_positon,age_type)
     
-    # driver = util.get_driver()
-    # url = main_page_licensed_url
-    # # print(url)
-    # driver.get(url)
-
-# # set_five_year(driver)
-# # 定位到对应的父元素
-# parent_element = driver.find_element(By.CSS_SELECTOR, ".bm-categorybox:nth-child(7)")
-
-# # 找到父元素下所有的子元素
-# child_elements = parent_element.find_elements(By.TAG_NAME, "li")
